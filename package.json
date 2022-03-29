@@ -1,0 +1,55 @@
+{
+  "name": "betterFlow",
+  "author": "Alessandro Traversi",
+  "version": "1.0.0",
+  "description": "Workflow improvements",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "lint": "npx eslint && npx stylelint **/*.css **/*.scss --ignore-path .gitignore",
+    "lint:fix": "npx eslint --fix --ext .ts,.tsx --ignore-path .gitignore && npx stylelint **/*.css **/*.scss **/*.vue --fix --ignore-path .gitignore",
+    "test": "yarn lint && yarn jest --coverage",
+    "test:watch": "jest --watchAll",
+    "commit": "cz"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "autoprefixer": "^10.4.4",
+    "babel-jest": "^27.5.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.7",
+    "postcss": "^8.4.12",
+    "prettier": "2.6.0",
+    "stylelint": "^14.6.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.14.0",
+    "typescript": "^4.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
